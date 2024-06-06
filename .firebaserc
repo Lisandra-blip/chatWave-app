@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "shoal-236fc": {
+      "hosting": {
+        "app": [
+          "shoal-236fc"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "shoal-236fc"
+  }
+}

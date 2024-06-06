@@ -1,0 +1,13 @@
+.avatar {
+  width: 5em;
+  height: 5em;
+}
+
+.chips-scroll {
+
+    display: flex;
+    overflow-x: auto; /* Habilita a rolagem horizontal */
+    white-space: nowrap; /* Impede quebra de linha */
+    max-width: 100%; /* Ajusta conforme necessário */
+
+}

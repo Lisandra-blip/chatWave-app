@@ -1,0 +1,42 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Fechar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content *ngIf="profile" class="ion-padding">
+
+  <div class="padding-center">
+    <div class="profile-picture">
+      <ion-avatar>
+        <ion-img [src]="profile.profileImg ? profile.profileImg : 'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg'" alt="Profile Picture"></ion-img>
+      </ion-avatar>
+    </div>
+    <div style="text-align: center;">
+      <h2>{{profile.apelido}}</h2>
+    </div>
+
+    <div class="chips-container">
+        <mat-chip-row *ngFor="let tag of profile.tags">
+          {{ tag }}
+        </mat-chip-row>
+    </div>
+    <div class="list">
+      <ion-list>
+        <ion-list-header>
+          <ion-label>Grupos</ion-label>
+        </ion-list-header>
+          <ion-item  *ngFor="let chat of chatRooms">
+            <ion-avatar slot="start">
+              <img [src]="chat.profileImg ? chat.profileImg : 'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg'" />
+            </ion-avatar>
+            <ion-label>
+              <h2>{{ chat.nome }}</h2>
+            </ion-label>
+          </ion-item>
+      </ion-list>
+    </div>
+
+  </div>
+</ion-content>

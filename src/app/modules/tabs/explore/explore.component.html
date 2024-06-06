@@ -1,0 +1,27 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+
+  <app-tags [(selectedTags)]="selectedTags" [tagsFilter]="true"></app-tags>
+
+  <div (window:scroll)="onScroll()">
+    <!-- <div *ngIf="chatRoomsLength === 0">
+      <ion-item>
+        <ion-label>
+          <h2>Nenhum resultado encontrado</h2>
+        </ion-label>
+      </ion-item>
+    </div> -->
+    <div *ngFor="let chat of chatRooms | async">
+      <ion-item (click)="enterChatRoom(chat.id)">
+        <ion-avatar slot="start">
+          <img [src]="chat.profileImg ? chat.profileImg : 'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg'" />
+        </ion-avatar>
+        <ion-label>
+          <h2>{{ chat.nome }}</h2>
+        </ion-label>
+      </ion-item>
+    </div>
+  </div>
+</ion-content>

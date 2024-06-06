@@ -1,0 +1,26 @@
+
+.container {
+  display: grid;
+  grid-template-columns: 100% 0%;
+  width: 20em;
+}
+
+.emoji-mart {
+  display: contents;
+  max-height: 270px; /* Defina a altura máxima desejada para o seletor de emojis */
+  overflow: auto; /* Habilita a rolagem quando o conteúdo exceder as dimensões */
+}
+
+/* Exemplo para definir um posicionamento adequado no elemento pai */
+.container-do-seletor {
+  position: relative;
+  z-index: 999999; /* Defina um valor alto para o z-index */
+}
+
+.text-image {
+max-height: 15em;}
+
+.avatar{
+  height: 15em;
+  max-width: 100%;
+}

@@ -1,0 +1,21 @@
+
+<ion-header color="primary">
+  <ion-toolbar>
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Fechar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding">
+  <form class="container-center" [formGroup]="formulario">
+    <app-camera [(selectedImage)]="selectedImage" [existingImg]="profile?.profileImg"></app-camera>
+    <div class="list">
+      <ion-input label="apelido" type="text" formControlName="apelido"  [maskito]="apelidoMask"></ion-input>
+      <ion-note *ngIf="(formulario.controls.apelido.dirty || formulario.controls.apelido.touched)" slot="error">
+        <span *ngIf="formulario.controls.apelido.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> Apelido é obrigatório </span>
+      </ion-note>
+    </div>
+  </form>
+  <app-tags [(selectedTags)]="selectedTags"></app-tags>
+  <ion-button expand="block" (click)="update()" [disabled]="!formulario.valid">Atualizar</ion-button>
+</ion-content>

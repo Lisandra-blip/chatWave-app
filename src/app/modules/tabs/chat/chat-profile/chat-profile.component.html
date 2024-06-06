@@ -1,0 +1,36 @@
+<ion-header class="ion-no-border">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content *ngIf="group">
+  <div class="container-center">
+    <div class="profile-picture">
+      <ion-avatar class="avatar">
+        <ion-img [src]="group.profileImg ? group.profileImg : 'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg'" alt="Profile Picture"></ion-img>
+      </ion-avatar>
+    </div>
+
+    <div style="text-align: center;">
+      <h2>{{group.nome}}</h2>
+      <ion-button *ngIf="group?.admin === profile?.id" fill="outline" (click)="updateChatRoom()">Atualizar grupo</ion-button>
+    </div>
+
+    <div class="chips-container">
+      <mat-chip-row *ngFor="let tag of group.tags">
+        {{ tag }}
+      </mat-chip-row>
+    </div>
+
+    <app-group-list class="list" [list]="group.membros" [chatId]="group.id"></app-group-list>
+
+    <div style="text-align: center;" *ngIf="group?.admin !== profile?.id">
+      <h2>{{group.nome}}</h2>
+      <ion-button  fill="outline" color="danger" (click)="leaveChatRoom()">Sair do grupo</ion-button>
+    </div>
+
+  </div>
+</ion-content>

@@ -1,0 +1,59 @@
+
+<ion-content class="ion-padding">
+  <div class="padding-center">
+    <form class="container-center" [formGroup]="formulario">
+
+      <div class="icon">
+        <app-camera [(selectedImage)]="selectedImage"></app-camera>
+      </div>
+
+      <div>
+        <ion-input label="apelido" type="text" formControlName="apelido"  [maskito]="apelidoMask"></ion-input>
+      </div>
+      <ion-note *ngIf="(formulario.controls.apelido.dirty || formulario.controls.apelido.touched)" slot="error">
+        <span *ngIf="formulario.controls.apelido.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> Apelido é obrigatório </span>
+      </ion-note>
+
+      <div>
+        <ion-input label="email" type="email" formControlName="email"></ion-input>
+      </div>
+      <ion-note *ngIf="(formulario.controls.email.dirty || formulario.controls.email.touched)" slot="error">
+        <span *ngIf="formulario.controls.email.errors?.['email']"><ion-icon name="alert-outline"></ion-icon> Email inválido </span>
+        <span *ngIf="formulario.controls.email.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> Email é obrigatório </span>
+      </ion-note>
+
+      <div>
+        <ion-input label="senha" type="{{ hide ? 'password' : 'text' }}" placeholder="*****" formControlName="password"
+                    [maskito]="passwordMask"></ion-input>
+      </div>
+      <ion-note *ngIf="(formulario.controls.password.dirty || formulario.controls.password.touched)" slot="error">
+        <span *ngIf="formulario.controls.password.errors?.['required']"><ion-icon name="alert-outline"></ion-icon> senha é obrigatório </span>
+        <span *ngIf="formulario.controls.password.errors?.['minlength']"><ion-icon name="alert-outline"></ion-icon> A senha precisa ter no mínimo 6 caracteres </span>
+      </ion-note>
+
+      <div>
+        <label for="tag">Interesses</label>
+        <app-tags id="tag" [(selectedTags)]="selectedTags"></app-tags>
+      </div>
+
+      <div class="button-group">
+        <ion-button expand="block" (click)="cadastro()" [disabled]="!formulario.valid || isLoading">Cadastrar
+          <ion-spinner *ngIf="isLoading" name="circular"></ion-spinner>
+        </ion-button>
+
+        <button expand="block" class="google-login-btn" (click)="auth.signUpWithGoogle()">
+          <img src="https://upload.wikimedia.org/wikipedia/commons/c/c1/Google_%22G%22_logo.svg" alt="Google logo" class="google-logo">
+          Cadastrar com Google
+        </button>
+
+        <p>Já tem uma conta?<a [routerLink]="'/login/sign-in'"> Entrar</a></p>
+      </div>
+    </form>
+  </div>
+</ion-content>
+
+
+
+
+
+

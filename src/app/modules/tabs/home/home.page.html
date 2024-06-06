@@ -1,0 +1,19 @@
+<ion-header [translucent]="true">
+</ion-header>
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-list>
+    <ion-item lines="full" class="item custom-item" *ngFor="let conversation of conversations" (click)="newChatRoom(conversation.id)">
+
+      <div class="last-message">
+        <img class="imagem" *ngIf="conversation.ultimaMensagem.profileImg" alt="Silhouette of mountains" [src]="conversation.ultimaMensagem.profileImg" />
+        <p *ngIf="conversation.ultimaMensagem.conteudo">{{ conversation.ultimaMensagem.conteudo }}</p>
+      </div>
+
+      <ion-avatar slot="start">
+        <img [src]="conversation.profileImg ? conversation.profileImg : 'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg'" />
+      </ion-avatar>
+    </ion-item>
+  </ion-list>
+
+</ion-content>

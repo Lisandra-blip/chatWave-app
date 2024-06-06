@@ -1,0 +1,38 @@
+.avatar {
+  width: 3em;
+  height: 3em;
+}
+
+.custom-snackbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.message-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin: 8px;
+  color: #323232;
+  //width: 50vw;
+}
+
+.message-usuario {
+  align-self: flex-end;
+  background-color: #f3e4fd;
+  width: auto;
+  max-width: 50vw;
+}
+
+.message-outros {
+  align-self: flex-start;
+  background-color: #f3f3f3;
+  width: auto;
+  max-width: 50vw;
+}
+
+.message-time {
+  font-size: 12px;
+  color: #777777;
+}

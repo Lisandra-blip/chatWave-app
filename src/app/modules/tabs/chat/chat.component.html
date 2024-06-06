@@ -1,0 +1,37 @@
+<ion-header color="primary">
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <app-back-button></app-back-button>
+    </ion-buttons>
+    <div *ngIf="group" slot="start" class="header" (click)="acessChatRoom(group.id)">
+      <ion-avatar class="avatar">
+        <ion-img [src]="group.profileImg ? group.profileImg : 'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg'" alt="Profile Picture"></ion-img>
+      </ion-avatar>
+      <ion-label>{{group?.nome}}</ion-label>
+    </div>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content #chatList class="ion-padding" (ionScroll)="onScroll($event)">
+  <div class="message-container" *ngFor="let mensagem of mensagens">
+    <div class="message" [ngClass]="{'message-usuario': mensagem.remetente === profile.apelido, 'message-outros': mensagem.remetente !== profile.apelido}">
+      <div class="message-content">
+        <p class="message-time"><span class="message-header" (click)="openModal(mensagem.remetenteId)">{{ mensagem.remetente }}</span> - {{ mensagem.dataHora | date: 'HH:mm' }}</p>
+
+        <div *ngIf="mensagem.image">
+          <ion-img [src]="mensagem.image ? mensagem.image : 'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg'" alt="Profile Picture"></ion-img>
+        </div>
+        <div class="message-text">
+          {{ mensagem.conteudo }}
+        </div>
+      </div>
+    </div>
+  </div>
+</ion-content>
+
+<ion-footer>
+  <div *ngIf="canAcess">
+    <app-text-bar (emitMensagem)="enviarMensagem($event)"></app-text-bar>
+  </div>
+  <ion-button *ngIf="!canAcess" color="primary" (click)="becomeMember(this.group.id, this.profile.id)" fill="outline" expand="full">Torne-se membro</ion-button>
+</ion-footer>

@@ -1,0 +1,7 @@
+{
+  "name": "FlashChat",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

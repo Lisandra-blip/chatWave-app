@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1035096226642",
+    "project_id": "shoal-236fc",
+    "storage_bucket": "shoal-236fc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1035096226642:android:936d9852eee39eea36588b",
+        "android_client_info": {
+          "package_name": "com.FlashChatAppMob"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1035096226642-gmptsk8878a484ve6fk2cvgggjkdd112.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCn2tEa1urcIrQYIG24aWaY-FrjklqiLXI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1035096226642-gmptsk8878a484ve6fk2cvgggjkdd112.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

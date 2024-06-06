@@ -1,0 +1,46 @@
+
+
+<ion-header color="primary">
+  <ion-toolbar>
+    <ion-button *ngIf="idChatRoom" color="danger" slot="start" id="present-alert">
+      <ion-icon name="trash-outline"></ion-icon>
+    </ion-button>
+
+    <ion-alert
+      trigger="present-alert"
+      header="Tem certeza que deseja excluir o grupo?"
+      [buttons]="alertButtons"></ion-alert>
+
+    <ion-buttons slot="end">
+      <ion-button (click)="dismissModal()">Fechar</ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+<ion-content class="ion-padding container-center">
+  <form class="container-center" [formGroup]="formulario">
+    <app-camera [(selectedImage)]="selectedImage" [existingImg]="chatRoom?.profileImg"></app-camera>
+    <div class="list">
+      <ion-item>
+        <ion-label position="stacked">Nome</ion-label>
+        <ion-input type="nome" formControlName="nome"></ion-input>
+      </ion-item>
+
+      <label for="tags">Tags</label>
+      <app-tags id="tags" [(selectedTags)]="selectedTags"></app-tags>
+
+      <ion-checkbox justify="end" labelPlacement="end" formControlName="privado">Privado</ion-checkbox>
+    </div>
+
+    <div>
+      <ion-button *ngIf="!idChatRoom" type="submit" expand="block" (click)="cadastro()"
+                  [disabled]="!formulario.valid || isLoading"> cadastrar
+        <ion-spinner *ngIf="isLoading" name="circular"></ion-spinner>
+      </ion-button>
+
+      <ion-button *ngIf="idChatRoom" type="submit" expand="block" (click)="update()"
+                  [disabled]="!formulario.valid|| isLoading"> atualizar
+        <ion-spinner *ngIf="isLoading" name="circular"></ion-spinner>
+      </ion-button>
+    </div>
+  </form>
+</ion-content>

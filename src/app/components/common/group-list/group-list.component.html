@@ -1,0 +1,15 @@
+
+<ion-grid>
+  <ion-row class="card">
+    <ion-col size="auto" col-33 *ngFor="let data of groupList">
+      <div (click)="openModal(data.id)">
+        <div style="position: relative;">
+          <ion-badge *ngIf="(chatId && data.id === chatData.admin)" slot="end" class="badge">admin</ion-badge>
+          <ion-avatar slot="start">
+            <img [src]="data?.profileImg ? data?.profileImg : 'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg'" />
+          </ion-avatar>
+        </div>
+      </div>
+    </ion-col>
+  </ion-row>
+</ion-grid>

@@ -1,0 +1,49 @@
+#container {
+  text-align: center;
+  position: absolute;
+  left: 0;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+#container strong {
+  font-size: 20px;
+  line-height: 26px;
+}
+
+#container p {
+  font-size: 16px;
+  line-height: 22px;
+  margin: 0;
+}
+
+#container a {
+  text-decoration: none;
+}
+
+.last-message {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  max-width: 400px;
+  p {
+    margin: 0;
+  }
+}
+
+.custom-item {
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.custom-item .last-message {
+  flex-grow: 1;
+  margin-right: 10px;
+  max-width: 400px;
+}
+
+.custom-item ion-avatar {
+  align-self: flex-end;
+  margin-bottom: 10px;
+}

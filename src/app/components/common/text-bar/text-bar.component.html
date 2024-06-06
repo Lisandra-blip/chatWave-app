@@ -1,0 +1,28 @@
+<div class="container-do-seletor">
+  <emoji-mart class="emoji-mart" *ngIf="toggled" (emojiSelect)="addEmoji($event)" title="Choose your emoji"></emoji-mart>
+</div>
+
+<div *ngIf="selectedImage" class="text-image">
+  <ion-img class="avatar" [src]="selectedImage ? selectedImage : 'https://www.generationsforpeace.org/wp-content/uploads/2018/03/empty.jpg'" alt="Profile Picture"></ion-img>
+</div>
+
+<div style="position: relative;">
+  <ion-toolbar>
+    <ion-buttons slot="start">
+      <ion-button (click)="takePhoto()">
+        <ion-icon color="primary" name="camera"></ion-icon>
+      </ion-button>
+      <ion-button (click)="toggled = !toggled;">
+        <ion-icon color="primary" name="happy"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  <!--  -->
+    <ion-textarea [(ngModel)]="messageText" autoGrow rows="1" placeholder="Send message" class="ion-text-center" name="messageText"></ion-textarea>
+    <ion-buttons slot="end">
+      <ion-button (click)="enviarMensagem()">
+        <ion-icon color="primary" name="send"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</div>
+

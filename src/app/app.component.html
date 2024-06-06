@@ -1,0 +1,10 @@
+<ion-header class="ion-no-border">
+  <div class="header" *ngIf="!idLogado">
+    <ion-button (click)="installPWA()">Instalar Flash Chat</ion-button>
+  </div>
+</ion-header>
+<ion-content>
+  <ion-app>
+    <ion-router-outlet></ion-router-outlet>
+  </ion-app>
+</ion-content>
